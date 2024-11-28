@@ -33,7 +33,8 @@ export default async (modelName: "Question", collectionName: string) => {
       await db.dropCollection(collectionName);
     }
   } catch (err) {
-    console.error(`Error in cleanDb: ${err.message}`);
+    const error = err as Error;
+    console.error(`Error in cleanDb: ${error.message}`);
     throw err;
   }
 };
